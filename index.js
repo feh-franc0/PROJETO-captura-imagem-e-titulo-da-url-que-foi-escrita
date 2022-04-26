@@ -68,7 +68,7 @@ async function run(){
 
     
         infoArray = [ ];
-        // infoObjeto = { }; //* TESTE
+        infoObjeto = { }; //* TESTE
 
 
         const title = await page.evaluate(() => {
@@ -85,9 +85,9 @@ async function run(){
          if (h2 != null && h2.length > 0) {return h2;}
          return null;
         });
-        console.log(title);
-        infoArray.push(title);//! TRANSFORMAR EM OBJETO
-        // infoObjeto.title = title; //? TESTE OBJETO
+        console.log('OLA O TITULO:',title);
+        // infoArray.push(title);//! TRANSFORMAR EM OBJETO
+        infoObjeto.title = title; //? TESTE OBJETO
 
                     //* ***** */
 
@@ -114,9 +114,9 @@ async function run(){
                return imgRelLink.href;
            }
         });
-        console.log(imgIcon);
-        infoArray.push(imgIcon);//! TRANSFORMAR EM OBJETO
-        // infoObjeto.image = imgIcon; //? TESTE OBJETO
+        console.log('OLHA A IMAGEM:',imgIcon);
+        // infoArray.push(imgIcon);//! TRANSFORMAR EM OBJETO
+        infoObjeto.image = imgIcon; //? TESTE OBJETO
 
 
 
@@ -124,9 +124,9 @@ async function run(){
         
         //! POR O OBETO NO ARRAY
 
-        // infoArray.push(infoObjeto) //? TESTE
+        infoArray.push(infoObjeto.title, infoObjeto.image) //? TESTE
         
-        // console.log("info do Objeto", infoObjeto);
+        console.log("info do Objeto", infoObjeto);
 
         console.log("info do array",infoArray); //* PASSA POR AQUI PARA ATUALIZAR 
 
@@ -136,6 +136,7 @@ async function run(){
         }, 5000);
 
         return infoArray;
+        // return infoObjeto;
 
 };
 
